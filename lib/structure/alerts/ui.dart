@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ollama_desktop/structure/alerts/alerts.dart';
 import 'package:ollama_desktop/structure/extensions/margins.dart';
 
 class Ui {
@@ -21,7 +20,7 @@ class Ui {
             width: 2,
             height: 40,
           ),
-          Icon(Icons.done, color: const Color(0xff4FB59E)).marginHorizontal(8),
+          const Icon(Icons.done, color: Color(0xff4FB59E)).marginHorizontal(8),
           Expanded(
             child: Text(
               message,
@@ -61,7 +60,7 @@ class Ui {
             width: 2,
             height: 40,
           ),
-          Icon(Icons.error, color: const Color(0xffE4003B)).marginHorizontal(8),
+          const Icon(Icons.error, color: Color(0xffE4003B)).marginHorizontal(8),
           Expanded(
             child: Text(
               message,
@@ -101,7 +100,7 @@ class Ui {
             width: 2,
             height: 40,
           ),
-          Icon(Icons.warning, color: const Color(0xffFFC107))
+          const Icon(Icons.warning, color: Color(0xffFFC107))
               .marginHorizontal(8),
           Expanded(
             child: Text(

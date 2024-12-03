@@ -6,9 +6,9 @@ class ErrorView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       appBar: OllamaAppBar(),
-      body: const Center(
+      body: Center(
         child: Text('Error'),
       ),
     );

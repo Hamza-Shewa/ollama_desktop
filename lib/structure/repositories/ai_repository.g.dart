@@ -22,12 +22,12 @@ class _AiRepository implements AiRepository {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<List<AiModel>> getAiModels() async {
+  Future<dynamic> getAiModels() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<List<AiModel>>(Options(
+    final _options = _setStreamType<dynamic>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -43,16 +43,8 @@ class _AiRepository implements AiRepository {
           _dio.options.baseUrl,
           baseUrl,
         )));
-    final _result = await _dio.fetch<List<dynamic>>(_options);
-    late List<AiModel> _value;
-    try {
-      _value = _result.data!
-          .map((dynamic i) => AiModel.fromJson(i as Map<String, dynamic>))
-          .toList();
-    } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
-      rethrow;
-    }
+    final _result = await _dio.fetch(_options);
+    final _value = _result.data;
     return _value;
   }
 

@@ -9,7 +9,7 @@ class DownloadOllama extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: OllamaAppBar(
+      appBar: const OllamaAppBar(
         title: 'Download Ollama',
         showActions: false,
       ),
@@ -18,17 +18,18 @@ class DownloadOllama extends StatelessWidget {
         child: BlocBuilder<DownloadOllamaCubit, DownloadOllamaState>(
           builder: (context, state) {
             final controller = context.read<DownloadOllamaCubit>();
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text("Ops! Seems like you don't have Ollama installed."),
-                Text("Download it now!"),
-                ElevatedButton(
-                  onPressed: () {},
-                  child: Text('Download Ollama'),
-                ),
-              ],
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Text("Ops! Seems like you don't have Ollama installed."),
+                  ElevatedButton(
+                    onPressed: controller.downloadOllama,
+                    child: const Text('Download Ollama'),
+                  ),
+                ],
+              ),
             );
           },
         ),

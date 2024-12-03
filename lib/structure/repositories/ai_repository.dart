@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:ollama_desktop/structure/models/ai_model.dart';
 import 'package:ollama_desktop/structure/models/ai_response.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -10,7 +9,7 @@ abstract class AiRepository {
   factory AiRepository(Dio dio, {String baseUrl}) = _AiRepository;
 
   @GET("tags")
-  Future<List<AiModel>> getAiModels();
+  Future<dynamic> getAiModels();
 
   @POST('generate')
   Future<AiResponse> sendMessage(@Body() Map<String, dynamic> aiModel);

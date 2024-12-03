@@ -10,7 +10,7 @@ part 'chat_state.dart';
 part 'chat_cubit.freezed.dart';
 
 class ChatCubit extends Cubit<ChatState> {
-  ChatCubit() : super(ChatState.initial());
+  ChatCubit() : super(const ChatState.initial());
   final aiRepository = getIt<AiRepository>();
 
   List<AiResponse> aiModels = [];
@@ -20,7 +20,7 @@ class ChatCubit extends Cubit<ChatState> {
     settings.put('model', 'qwen2.5-coder:latest');
     if (messageController.text.isEmpty) return;
 
-    emit(ChatState.loading());
+    emit(const ChatState.loading());
     try {
       aiModels.add(AiResponse(
         response: messageController.text,

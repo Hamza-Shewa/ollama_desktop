@@ -6,7 +6,7 @@ part 'download_ollama_state.dart';
 part 'download_ollama_cubit.freezed.dart';
 
 class DownloadOllamaCubit extends Cubit<DownloadOllamaState> {
-  DownloadOllamaCubit() : super(DownloadOllamaState.initial());
+  DownloadOllamaCubit() : super(const DownloadOllamaState.initial());
 
   downloadOllama() async {
     final link = Uri.parse('https://ollama.com/download');

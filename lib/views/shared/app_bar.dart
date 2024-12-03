@@ -20,7 +20,7 @@ class OllamaAppBar extends StatelessWidget implements PreferredSizeWidget {
         actions: showActions
             ? [
                 IconButton(
-                  icon: Icon(Icons.settings),
+                  icon: const Icon(Icons.settings),
                   onPressed: () {
                     context.pushNamed(settings);
                   },
@@ -32,5 +32,5 @@ class OllamaAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(56.0);
+  Size get preferredSize => const Size.fromHeight(56.0);
 }

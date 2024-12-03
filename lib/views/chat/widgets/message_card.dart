@@ -27,6 +27,9 @@ class MessageCard extends StatelessWidget {
         ),
         child: Text(
           response.response,
+          textDirection: response.response.contains(RegExp(r'[\u0600-\u06FF]'))
+              ? TextDirection.rtl
+              : TextDirection.ltr,
         ).marginAll(8),
       ),
     ).marginHorizontal(18);

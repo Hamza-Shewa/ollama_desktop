@@ -14,7 +14,7 @@ class OllamaRouter {
         );
       case settings:
         return MaterialPageRoute(
-          builder: (_) => SettingsView(),
+          builder: (_) => const SettingsView(),
           settings: setting,
         );
       default:
