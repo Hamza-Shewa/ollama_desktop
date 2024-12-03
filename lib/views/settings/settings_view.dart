@@ -1,6 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:ollama_desktop/structure/extensions/extensions.dart';
 import 'package:ollama_desktop/views/settings/components/language/language.dart';
+import 'package:ollama_desktop/views/settings/components/models/models.dart';
+import 'package:ollama_desktop/views/settings/components/themes/themes.dart';
 import 'package:ollama_desktop/views/shared/app_bar.dart';
 
 class SettingsView extends StatelessWidget {
@@ -27,11 +30,13 @@ class SettingsView extends StatelessWidget {
               ),
             ],
           ),
-          child: const Column(
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              LanguageComponent(),
+              const LanguageComponent(),
+              const ThemeComponent().marginVertical(20),
+              const ModelsComponent(),
             ],
           ),
         ),

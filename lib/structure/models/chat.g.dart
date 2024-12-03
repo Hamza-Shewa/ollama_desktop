@@ -1,41 +1,38 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'ai_model.dart';
+part of 'chat.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class AiModelAdapter extends TypeAdapter<AiModel> {
+class ChatAdapter extends TypeAdapter<Chat> {
   @override
-  final int typeId = 0;
+  final int typeId = 2;
 
   @override
-  AiModel read(BinaryReader reader) {
+  Chat read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return AiModel(
-      name: fields[0] as String,
+    return Chat(
+      id: fields[0] as String,
       model: fields[1] as String,
-      size: fields[2] as int,
-      modifiedAt: fields[3] as DateTime,
+      responses: (fields[2] as List).cast<AiResponse>(),
     );
   }
 
   @override
-  void write(BinaryWriter writer, AiModel obj) {
+  void write(BinaryWriter writer, Chat obj) {
     writer
-      ..writeByte(4)
+      ..writeByte(3)
       ..writeByte(0)
-      ..write(obj.name)
+      ..write(obj.id)
       ..writeByte(1)
       ..write(obj.model)
       ..writeByte(2)
-      ..write(obj.size)
-      ..writeByte(3)
-      ..write(obj.modifiedAt);
+      ..write(obj.responses);
   }
 
   @override
@@ -44,7 +41,7 @@ class AiModelAdapter extends TypeAdapter<AiModel> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is AiModelAdapter &&
+      other is ChatAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
@@ -53,18 +50,18 @@ class AiModelAdapter extends TypeAdapter<AiModel> {
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$AiModelImpl _$$AiModelImplFromJson(Map<String, dynamic> json) =>
-    _$AiModelImpl(
-      name: json['name'] as String? ?? "",
+_$ChatImpl _$$ChatImplFromJson(Map<String, dynamic> json) => _$ChatImpl(
+      id: json['id'] as String? ?? "",
       model: json['model'] as String? ?? "",
-      size: (json['size'] as num?)?.toInt() ?? 0,
-      modifiedAt: DateTime.parse(json['modified_at'] as String),
+      responses: (json['responses'] as List<dynamic>?)
+              ?.map((e) => AiResponse.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
     );
 
-Map<String, dynamic> _$$AiModelImplToJson(_$AiModelImpl instance) =>
+Map<String, dynamic> _$$ChatImplToJson(_$ChatImpl instance) =>
     <String, dynamic>{
-      'name': instance.name,
+      'id': instance.id,
       'model': instance.model,
-      'size': instance.size,
-      'modified_at': instance.modifiedAt.toIso8601String(),
+      'responses': instance.responses,
     };

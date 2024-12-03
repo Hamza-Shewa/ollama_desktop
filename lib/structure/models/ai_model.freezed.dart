@@ -20,9 +20,13 @@ AiModel _$AiModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AiModel {
+  @HiveField(0)
   String get name => throw _privateConstructorUsedError;
+  @HiveField(1)
   String get model => throw _privateConstructorUsedError;
+  @HiveField(2)
   int get size => throw _privateConstructorUsedError;
+  @HiveField(3)
   @JsonKey(name: "modified_at")
   DateTime get modifiedAt => throw _privateConstructorUsedError;
 
@@ -41,10 +45,10 @@ abstract class $AiModelCopyWith<$Res> {
       _$AiModelCopyWithImpl<$Res, AiModel>;
   @useResult
   $Res call(
-      {String name,
-      String model,
-      int size,
-      @JsonKey(name: "modified_at") DateTime modifiedAt});
+      {@HiveField(0) String name,
+      @HiveField(1) String model,
+      @HiveField(2) int size,
+      @HiveField(3) @JsonKey(name: "modified_at") DateTime modifiedAt});
 }
 
 /// @nodoc
@@ -96,10 +100,10 @@ abstract class _$$AiModelImplCopyWith<$Res> implements $AiModelCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String name,
-      String model,
-      int size,
-      @JsonKey(name: "modified_at") DateTime modifiedAt});
+      {@HiveField(0) String name,
+      @HiveField(1) String model,
+      @HiveField(2) int size,
+      @HiveField(3) @JsonKey(name: "modified_at") DateTime modifiedAt});
 }
 
 /// @nodoc
@@ -145,10 +149,10 @@ class __$$AiModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$AiModelImpl extends _AiModel {
   const _$AiModelImpl(
-      {this.name = "",
-      this.model = "",
-      this.size = 0,
-      @JsonKey(name: "modified_at") required this.modifiedAt})
+      {@HiveField(0) this.name = "",
+      @HiveField(1) this.model = "",
+      @HiveField(2) this.size = 0,
+      @HiveField(3) @JsonKey(name: "modified_at") required this.modifiedAt})
       : super._();
 
   factory _$AiModelImpl.fromJson(Map<String, dynamic> json) =>
@@ -156,14 +160,18 @@ class _$AiModelImpl extends _AiModel {
 
   @override
   @JsonKey()
+  @HiveField(0)
   final String name;
   @override
   @JsonKey()
+  @HiveField(1)
   final String model;
   @override
   @JsonKey()
+  @HiveField(2)
   final int size;
   @override
+  @HiveField(3)
   @JsonKey(name: "modified_at")
   final DateTime modifiedAt;
 
@@ -206,22 +214,27 @@ class _$AiModelImpl extends _AiModel {
 
 abstract class _AiModel extends AiModel {
   const factory _AiModel(
-          {final String name,
-          final String model,
-          final int size,
-          @JsonKey(name: "modified_at") required final DateTime modifiedAt}) =
-      _$AiModelImpl;
+      {@HiveField(0) final String name,
+      @HiveField(1) final String model,
+      @HiveField(2) final int size,
+      @HiveField(3)
+      @JsonKey(name: "modified_at")
+      required final DateTime modifiedAt}) = _$AiModelImpl;
   const _AiModel._() : super._();
 
   factory _AiModel.fromJson(Map<String, dynamic> json) = _$AiModelImpl.fromJson;
 
   @override
+  @HiveField(0)
   String get name;
   @override
+  @HiveField(1)
   String get model;
   @override
+  @HiveField(2)
   int get size;
   @override
+  @HiveField(3)
   @JsonKey(name: "modified_at")
   DateTime get modifiedAt;
 

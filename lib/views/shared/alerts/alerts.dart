@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ollama_desktop/structure/alerts/ui.dart';
+import 'package:ollama_desktop/views/shared/alerts/ui.dart';
 
 class OllamaAlerts {
   static final GlobalKey<ScaffoldMessengerState> rootScaffoldMessengerKey =

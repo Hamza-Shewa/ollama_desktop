@@ -6,10 +6,12 @@ class OllamaAppBar extends StatelessWidget implements PreferredSizeWidget {
   const OllamaAppBar({
     this.title,
     this.showActions = true,
+    this.leading,
     super.key,
   });
   final String? title;
   final bool showActions;
+  final Widget? leading;
   @override
   Widget build(BuildContext context) {
     return Hero(
@@ -17,6 +19,7 @@ class OllamaAppBar extends StatelessWidget implements PreferredSizeWidget {
       child: AppBar(
         title: Text(title ?? 'Ollama'),
         centerTitle: true,
+        leading: leading,
         actions: showActions
             ? [
                 IconButton(

@@ -20,10 +20,15 @@ AiResponse _$AiResponseFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AiResponse {
+  @HiveField(0)
   String get name => throw _privateConstructorUsedError;
+  @HiveField(1)
   String get response => throw _privateConstructorUsedError;
+  @HiveField(2)
   List<int> get context => throw _privateConstructorUsedError;
+  @HiveField(3)
   bool get isUser => throw _privateConstructorUsedError;
+  @HiveField(4)
   @JsonKey(name: "created_at")
   DateTime get createdAt => throw _privateConstructorUsedError;
 
@@ -44,11 +49,11 @@ abstract class $AiResponseCopyWith<$Res> {
       _$AiResponseCopyWithImpl<$Res, AiResponse>;
   @useResult
   $Res call(
-      {String name,
-      String response,
-      List<int> context,
-      bool isUser,
-      @JsonKey(name: "created_at") DateTime createdAt});
+      {@HiveField(0) String name,
+      @HiveField(1) String response,
+      @HiveField(2) List<int> context,
+      @HiveField(3) bool isUser,
+      @HiveField(4) @JsonKey(name: "created_at") DateTime createdAt});
 }
 
 /// @nodoc
@@ -106,11 +111,11 @@ abstract class _$$AiResponseImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String name,
-      String response,
-      List<int> context,
-      bool isUser,
-      @JsonKey(name: "created_at") DateTime createdAt});
+      {@HiveField(0) String name,
+      @HiveField(1) String response,
+      @HiveField(2) List<int> context,
+      @HiveField(3) bool isUser,
+      @HiveField(4) @JsonKey(name: "created_at") DateTime createdAt});
 }
 
 /// @nodoc
@@ -161,11 +166,11 @@ class __$$AiResponseImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$AiResponseImpl extends _AiResponse {
   const _$AiResponseImpl(
-      {this.name = "",
-      this.response = "",
-      final List<int> context = const [],
-      this.isUser = false,
-      @JsonKey(name: "created_at") required this.createdAt})
+      {@HiveField(0) this.name = "",
+      @HiveField(1) this.response = "",
+      @HiveField(2) final List<int> context = const [],
+      @HiveField(3) this.isUser = false,
+      @HiveField(4) @JsonKey(name: "created_at") required this.createdAt})
       : _context = context,
         super._();
 
@@ -174,13 +179,16 @@ class _$AiResponseImpl extends _AiResponse {
 
   @override
   @JsonKey()
+  @HiveField(0)
   final String name;
   @override
   @JsonKey()
+  @HiveField(1)
   final String response;
   final List<int> _context;
   @override
   @JsonKey()
+  @HiveField(2)
   List<int> get context {
     if (_context is EqualUnmodifiableListView) return _context;
     // ignore: implicit_dynamic_type
@@ -189,8 +197,10 @@ class _$AiResponseImpl extends _AiResponse {
 
   @override
   @JsonKey()
+  @HiveField(3)
   final bool isUser;
   @override
+  @HiveField(4)
   @JsonKey(name: "created_at")
   final DateTime createdAt;
 
@@ -236,26 +246,32 @@ class _$AiResponseImpl extends _AiResponse {
 
 abstract class _AiResponse extends AiResponse {
   const factory _AiResponse(
-          {final String name,
-          final String response,
-          final List<int> context,
-          final bool isUser,
-          @JsonKey(name: "created_at") required final DateTime createdAt}) =
-      _$AiResponseImpl;
+      {@HiveField(0) final String name,
+      @HiveField(1) final String response,
+      @HiveField(2) final List<int> context,
+      @HiveField(3) final bool isUser,
+      @HiveField(4)
+      @JsonKey(name: "created_at")
+      required final DateTime createdAt}) = _$AiResponseImpl;
   const _AiResponse._() : super._();
 
   factory _AiResponse.fromJson(Map<String, dynamic> json) =
       _$AiResponseImpl.fromJson;
 
   @override
+  @HiveField(0)
   String get name;
   @override
+  @HiveField(1)
   String get response;
   @override
+  @HiveField(2)
   List<int> get context;
   @override
+  @HiveField(3)
   bool get isUser;
   @override
+  @HiveField(4)
   @JsonKey(name: "created_at")
   DateTime get createdAt;
 
