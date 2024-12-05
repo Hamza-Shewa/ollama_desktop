@@ -36,7 +36,11 @@ extension Utilites on BuildContext {
   Future pushNamed(String routeName, {dynamic arguments}) async =>
       await Navigator.pushNamed(this, routeName, arguments: arguments);
 
-  dynamic get arguments => ModalRoute.of(this)!.settings.arguments;
+  Future offAndToNamed(String routeName, {dynamic arguments}) async =>
+      await Navigator.pushReplacementNamed(this, routeName,
+          arguments: arguments);
+
+  dynamic get arguments => ModalRoute.of(this)?.settings.arguments;
 
   bool get isKeyboardVisible => MediaQuery.viewInsetsOf(this).bottom != 0;
 

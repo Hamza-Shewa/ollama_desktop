@@ -1,10 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:ollama_desktop/structure/extensions/extensions.dart';
 import 'package:ollama_desktop/structure/models/chat.dart';
-import 'package:ollama_desktop/views/chat/cubit/chat_cubit.dart';
+import 'package:ollama_desktop/structure/routes/app_routes.dart';
 import 'package:ollama_desktop/views/shared/app_bar.dart';
 
 class HistoryView extends StatelessWidget {
@@ -12,7 +11,6 @@ class HistoryView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = context.read<ChatCubit>();
     return Scaffold(
       appBar: OllamaAppBar(
         title: 'History'.tr(),
@@ -23,16 +21,15 @@ class HistoryView extends StatelessWidget {
           return ListView.builder(
             itemCount: box.length,
             itemBuilder: (context, index) {
-              final Chat chat = box.getAt(index);
+              final Chat item = box.getAt(index);
               return ListTile(
-                title: Text(chat.model),
+                title: Text(item.model),
                 onTap: () {
-                  controller.setChat(chat);
-                  context.pop();
+                  context.offAndToNamed(chat, arguments: item);
                 },
-                subtitle: Text(chat.responses.isEmpty
-                    ? 'No Response'
-                    : chat.responses.last.response),
+                subtitle: Text(item.responses.isEmpty
+                    ? 'No Response'.tr()
+                    : item.responses.last.response),
               );
             },
           );

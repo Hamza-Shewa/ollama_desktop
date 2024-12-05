@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ollama_desktop/views/chat/chat_view.dart';
 import 'package:ollama_desktop/views/download_ollama/download_ollama.dart';
 import 'package:ollama_desktop/views/home/cubit/home_cubit.dart';
+import 'package:ollama_desktop/views/landing/landing_view.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -25,7 +25,7 @@ class HomeView extends StatelessWidget {
               );
             },
             loaded: () {
-              return const ChatView();
+              return const LandingView();
             },
             error: (e) {
               return const DownloadOllama();

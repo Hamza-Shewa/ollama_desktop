@@ -37,8 +37,13 @@ class MessageCard extends StatelessWidget {
           ),
           child: SelectableText(
             response.response,
-            textDirection:
-                response.response.contains(RegExp(r'[\u0600-\u06FF]'))
+            textDirection: RegExp(r'".*[\u0600-\u06FF].*"')
+                        .hasMatch(response.response) &&
+                    response.response.contains(RegExp(r'[A-Za-z]')) &&
+                    !RegExp(r'[\u0600-\u06FF]').hasMatch(response.response[0])
+                ? TextDirection.ltr
+                : response.response.contains(RegExp(r'[\u0600-\u06FF]')) &&
+                        RegExp(r'".*[A-Za-z].*"').hasMatch(response.response)
                     ? TextDirection.rtl
                     : TextDirection.ltr,
           ).marginAll(8),

@@ -10,7 +10,6 @@ class ModelsComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final chatController = context.read<ChatCubit>();
     return BlocProvider(
       create: (context) => ModelsCubit(),
       child: BlocBuilder<ModelsCubit, ModelsState>(
@@ -37,17 +36,6 @@ class ModelsComponent extends StatelessWidget {
                 }).toList(),
                 onSelected: (value) async {
                   if (value != null) {
-                    if (chatController.aiResponses.isNotEmpty) {
-                      await showConfirmation(
-                        context,
-                        'Save chat'.tr(),
-                        'Do you want to save the current chat?'.tr(),
-                      ).then((v) {
-                        if (v) {
-                          chatController.saveChat();
-                        }
-                      });
-                    }
                     controller.setModel(value);
                   }
                 },

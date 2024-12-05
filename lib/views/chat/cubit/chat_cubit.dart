@@ -65,7 +65,8 @@ class ChatCubit extends Cubit<ChatState> {
     }
   }
 
-  void setChat(Chat chat) async {
+  void setChat(Chat? chat) async {
+    if (chat == null) return;
     emit(const ChatState.loading());
     aiResponses.clear();
     aiResponses.addAll(chat.responses);
@@ -89,6 +90,7 @@ class ChatCubit extends Cubit<ChatState> {
       if (event.logicalKey == LogicalKeyboardKey.controlLeft ||
           event.logicalKey == LogicalKeyboardKey.controlRight) {
         _isCtrlPressed = false;
+        messageController.clear();
       }
     }
   }

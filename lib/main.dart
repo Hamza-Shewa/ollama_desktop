@@ -47,26 +47,23 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => ChatCubit(),
-      child: ValueListenableBuilder(
-          valueListenable: Hive.box('settings').listenable(),
-          builder: (context, box, child) {
-            return MaterialApp(
-              title: 'Ollama Desktop',
-              theme: lightTheme,
-              darkTheme: darkTheme,
-              localizationsDelegates: context.localizationDelegates,
-              supportedLocales: context.supportedLocales,
-              locale: context.locale,
-              themeMode: box.get('theme', defaultValue: 'light') == 'light'
-                  ? ThemeMode.light
-                  : ThemeMode.dark,
-              scaffoldMessengerKey: OllamaAlerts.rootScaffoldMessengerKey,
-              debugShowCheckedModeBanner: false,
-              onGenerateRoute: OllamaRouter().generateRoute,
-            );
-          }),
-    );
+    return ValueListenableBuilder(
+        valueListenable: Hive.box('settings').listenable(),
+        builder: (context, box, child) {
+          return MaterialApp(
+            title: 'Ollama Desktop',
+            theme: lightTheme,
+            darkTheme: darkTheme,
+            localizationsDelegates: context.localizationDelegates,
+            supportedLocales: context.supportedLocales,
+            locale: context.locale,
+            themeMode: box.get('theme', defaultValue: 'light') == 'light'
+                ? ThemeMode.light
+                : ThemeMode.dark,
+            scaffoldMessengerKey: OllamaAlerts.rootScaffoldMessengerKey,
+            debugShowCheckedModeBanner: false,
+            onGenerateRoute: OllamaRouter().generateRoute,
+          );
+        });
   }
 }
