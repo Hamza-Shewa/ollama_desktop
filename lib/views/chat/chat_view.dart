@@ -5,7 +5,7 @@ import 'package:ollama_desktop/structure/extensions/extensions.dart';
 import 'package:ollama_desktop/structure/routes/app_routes.dart';
 import 'package:ollama_desktop/views/chat/cubit/chat_cubit.dart';
 import 'package:ollama_desktop/views/chat/widgets/message_card.dart';
-import 'package:ollama_desktop/views/shared/app_bar.dart';
+import 'package:ollama_desktop/views/shared/widgets/app_bar.dart';
 import 'package:ollama_desktop/views/shared/confirmation_dialog.dart';
 
 class ChatView extends StatelessWidget {
@@ -37,20 +37,6 @@ class ChatView extends StatelessWidget {
                   context.pop();
                 },
               ),
-              action: [
-                IconButton(
-                  icon: const Icon(Icons.save),
-                  onPressed: () {
-                    controller.saveChat();
-                  },
-                ).marginEnd(4),
-                IconButton(
-                  icon: const Icon(Icons.history),
-                  onPressed: () {
-                    context.pushNamed(history);
-                  },
-                ),
-              ],
             ),
             body: Column(
               children: [

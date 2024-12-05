@@ -4,7 +4,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:ollama_desktop/structure/extensions/extensions.dart';
 import 'package:ollama_desktop/structure/models/chat.dart';
 import 'package:ollama_desktop/structure/routes/app_routes.dart';
-import 'package:ollama_desktop/views/shared/app_bar.dart';
+import 'package:ollama_desktop/views/shared/widgets/app_bar.dart';
 
 class HistoryView extends StatelessWidget {
   const HistoryView({super.key});
@@ -25,7 +25,7 @@ class HistoryView extends StatelessWidget {
               return ListTile(
                 title: Text(item.model),
                 onTap: () {
-                  context.offAndToNamed(chat, arguments: item);
+                  context.pushNamed(chat, arguments: item);
                 },
                 subtitle: Text(item.responses.isEmpty
                     ? 'No Response'.tr()

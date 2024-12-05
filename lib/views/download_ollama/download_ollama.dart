@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ollama_desktop/views/download_ollama/cubit/download_ollama_cubit.dart';
-import 'package:ollama_desktop/views/shared/app_bar.dart';
+import 'package:ollama_desktop/views/shared/widgets/app_bar.dart';
 
 class DownloadOllama extends StatelessWidget {
   const DownloadOllama({super.key});
@@ -23,7 +23,8 @@ class DownloadOllama extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const Text("Ops! Seems like you don't have Ollama installed."),
+                  const Text(
+                      "Ops! Seems like you don't have Ollama installed."),
                   ElevatedButton(
                     onPressed: controller.downloadOllama,
                     child: const Text('Download Ollama'),

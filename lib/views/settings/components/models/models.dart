@@ -1,9 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ollama_desktop/views/chat/cubit/chat_cubit.dart';
 import 'package:ollama_desktop/views/settings/components/models/cubit/models_cubit.dart';
-import 'package:ollama_desktop/views/shared/confirmation_dialog.dart';
 
 class ModelsComponent extends StatelessWidget {
   const ModelsComponent({super.key});
@@ -28,6 +26,7 @@ class ModelsComponent extends StatelessWidget {
             },
             loaded: (models) {
               return DropdownMenu<String>(
+                width: 500,
                 dropdownMenuEntries: models.map((model) {
                   return DropdownMenuEntry(
                     value: model.model,
@@ -43,8 +42,8 @@ class ModelsComponent extends StatelessWidget {
               );
             },
             error: (e) {
-              return const Center(
-                child: Text('Error'),
+              return Center(
+                child: Text('Error'.tr()),
               );
             },
           );

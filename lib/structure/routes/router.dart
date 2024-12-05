@@ -3,7 +3,7 @@ import 'package:ollama_desktop/structure/routes/app_routes.dart';
 import 'package:ollama_desktop/views/chat/chat_view.dart';
 import 'package:ollama_desktop/views/history/history.dart';
 import 'package:ollama_desktop/views/home/home_view.dart';
-import 'package:ollama_desktop/views/shared/error_view.dart';
+import 'package:ollama_desktop/views/shared/widgets/error_view.dart';
 
 class OllamaRouter {
   Route? generateRoute(RouteSettings setting) {

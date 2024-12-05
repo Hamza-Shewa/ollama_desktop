@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ollama_desktop/views/shared/app_bar.dart';
+import 'package:ollama_desktop/views/shared/widgets/app_bar.dart';
 
 class ErrorView extends StatelessWidget {
   const ErrorView({super.key});

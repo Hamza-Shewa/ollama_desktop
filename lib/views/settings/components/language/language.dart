@@ -9,6 +9,7 @@ class LanguageComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return DropdownMenu<Locale>(
       label: Text('language'.tr()),
+      width: 500,
       dropdownMenuEntries: context.supportedLocales.map((e) {
         return DropdownMenuEntry(
           value: e,
@@ -28,6 +29,6 @@ class LanguageComponent extends StatelessWidget {
           context.setLocale(value);
         }
       },
-    ).marginAll(18);
+    );
   }
 }
