@@ -14,6 +14,7 @@ part 'chat_cubit.freezed.dart';
 
 class ChatCubit extends Cubit<ChatState> {
   ChatCubit() : super(const ChatState.initial());
+  final scrollController = ScrollController();
   final aiRepository = getIt<AiRepository>();
   final focusNode = FocusNode();
   List<AiResponse> aiResponses = [];
@@ -33,6 +34,7 @@ class ChatCubit extends Cubit<ChatState> {
         isUser: true,
         context: aiResponses.isNotEmpty ? aiResponses.last.context : [],
       ));
+      scrollController.jumpTo(scrollController.position.maxScrollExtent);
       messageController.clear();
       final response = await aiRepository.sendMessage({
         "prompt": aiResponses.last.response,
@@ -41,16 +43,16 @@ class ChatCubit extends Cubit<ChatState> {
         if (aiResponses.last.context.isNotEmpty)
           "context": aiResponses.last.context,
       });
-
       aiResponses.add(response);
       emit(ChatState.loaded(aiResponses));
+      scrollController.jumpTo(scrollController.position.maxScrollExtent);
+      focusNode.requestFocus();
     } catch (e) {
       emit(ChatState.error(e.toString()));
     }
   }
 
   void saveChat() async {
-    emit(const ChatState.loading());
     try {
       await Hive.box('chats').add(Chat(
         id: const Uuid().v4(),
@@ -59,7 +61,6 @@ class ChatCubit extends Cubit<ChatState> {
       ));
       aiResponses.clear();
       messageController.clear();
-      emit(const ChatState.loaded([]));
     } catch (e) {
       print(e);
     }
@@ -76,22 +77,25 @@ class ChatCubit extends Cubit<ChatState> {
 
   bool _isCtrlPressed = false;
 
-  void onKeyEvent(KeyEvent event) {
+  Future onKeyEvent(KeyEvent event) async {
     if (event is KeyDownEvent) {
       if (event.logicalKey == LogicalKeyboardKey.controlLeft ||
           event.logicalKey == LogicalKeyboardKey.controlRight) {
         _isCtrlPressed = true;
-      } else if (event.logicalKey == LogicalKeyboardKey.enter) {
-        if (_isCtrlPressed) {
-          sendMessage();
-        }
       }
     } else if (event is KeyUpEvent) {
       if (event.logicalKey == LogicalKeyboardKey.controlLeft ||
           event.logicalKey == LogicalKeyboardKey.controlRight) {
         _isCtrlPressed = false;
-        messageController.clear();
       }
+    }
+
+    if (event is KeyDownEvent &&
+        _isCtrlPressed &&
+        event.logicalKey == LogicalKeyboardKey.enter) {
+      focusNode.unfocus();
+      await sendMessage();
+      focusNode.requestFocus();
     }
   }
 }

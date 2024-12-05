@@ -12,5 +12,9 @@ final lightTheme = ThemeData(
     thumbColor: WidgetStateProperty.all(Colors.blue),
     trackColor: WidgetStateProperty.all(Colors.blue[200]),
   ),
+  colorScheme: ColorScheme.light(
+    primaryContainer: Colors.white,
+    secondaryContainer: Colors.grey[200],
+  ),
   brightness: Brightness.light,
 );
