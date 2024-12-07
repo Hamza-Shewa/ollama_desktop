@@ -28,6 +28,7 @@ final darkTheme = ThemeData(
   colorScheme: ColorScheme.dark(
     primaryContainer: Colors.black54,
     secondaryContainer: Colors.grey[900],
+    shadow: Colors.indigoAccent[100]!.withOpacity(0.2),
   ),
   textTheme: const TextTheme(
     titleLarge: TextStyle(

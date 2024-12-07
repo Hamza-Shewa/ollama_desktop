@@ -28,6 +28,7 @@ final lightTheme = ThemeData(
   colorScheme: ColorScheme.light(
     primaryContainer: Colors.white,
     secondaryContainer: Colors.grey[200],
+    shadow: Colors.indigoAccent[100]!.withOpacity(0.2),
   ),
   textTheme: const TextTheme(
     titleLarge: TextStyle(
