@@ -84,11 +84,11 @@ class ModelsComponent extends StatelessWidget {
                           initialSelection: controller.getModel(),
                         ),
                       ),
-                      OllamaButton(
-                        icon: const Icon(Icons.add),
-                        text: 'Add Model'.tr(),
-                        onPressed: () {},
-                      ).marginStart(20),
+                      // OllamaButton(
+                      //   icon: const Icon(Icons.add),
+                      //   text: 'Add Model'.tr(),
+                      //   onPressed: () {},
+                      // ).marginStart(20),
                     ],
                   ),
                 ],
