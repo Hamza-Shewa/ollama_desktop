@@ -63,7 +63,7 @@ class ModelsComponent extends StatelessWidget {
                           },
                         ).marginStart(20),
                       ],
-                    ).marginVertical(20),
+                    ).marginBottom(20),
                   ),
                   DropdownMenu<String>(
                     width: 500,
