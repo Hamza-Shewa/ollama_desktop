@@ -7,12 +7,16 @@ class OllamaButton extends StatelessWidget {
     this.text,
     this.outLined = false,
     this.fullWidth = false,
+    this.suffex,
+    this.height = 55,
     super.key,
   });
   final Function()? onPressed;
   final String? text;
   final bool outLined;
   final bool fullWidth;
+  final Widget? suffex;
+  final double height;
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
@@ -22,8 +26,10 @@ class OllamaButton extends StatelessWidget {
       padding: const EdgeInsets.symmetric(
         horizontal: 16,
       ),
+      hoverElevation: outLined ? 0 : 2,
+      highlightElevation: outLined ? 0 : 2,
       elevation: outLined ? 0 : 2,
-      height: 55,
+      height: height,
       minWidth: fullWidth ? double.infinity : null,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8),
@@ -31,7 +37,12 @@ class OllamaButton extends StatelessWidget {
           color: outLined ? context.theme.primaryColor : Colors.transparent,
         ),
       ),
-      child: Text(text ?? ''),
+      child: Row(
+        children: [
+          Text(text ?? ''),
+          if (suffex != null) suffex!,
+        ],
+      ),
     );
   }
 }

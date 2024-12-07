@@ -5,5 +5,5 @@ part 'landing_state.dart';
 part 'landing_cubit.freezed.dart';
 
 class LandingCubit extends Cubit<LandingState> {
-  LandingCubit() : super(LandingState.initial());
+  LandingCubit() : super(const LandingState.initial());
 }

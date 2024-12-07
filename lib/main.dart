@@ -1,7 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:ollama_desktop/structure/models/ai_model.dart';
 import 'package:ollama_desktop/structure/models/ai_response.dart';
@@ -10,15 +8,13 @@ import 'package:ollama_desktop/views/shared/alerts/alerts.dart';
 import 'package:ollama_desktop/structure/global/dio_helper.dart';
 import 'package:ollama_desktop/structure/global/get_it.dart';
 import 'package:ollama_desktop/structure/routes/router.dart';
-import 'package:ollama_desktop/views/chat/cubit/chat_cubit.dart';
 import 'package:ollama_desktop/views/shared/themes/dark_theme.dart';
 import 'package:ollama_desktop/views/shared/themes/light_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await dotenv.load(fileName: ".env");
-  await DioHelper.initConnection();
   await initHive();
+  await DioHelper.initConnection();
   await EasyLocalization.ensureInitialized();
   await setupGetIt();
   runApp(

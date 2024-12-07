@@ -4,8 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ollama_desktop/structure/extensions/extensions.dart';
 import 'package:ollama_desktop/views/chat/cubit/chat_cubit.dart';
 import 'package:ollama_desktop/views/chat/widgets/message_card.dart';
-import 'package:ollama_desktop/views/shared/widgets/app_bar.dart';
+import 'package:ollama_desktop/views/shared/widgets/ollama_app_bar.dart';
 import 'package:ollama_desktop/views/shared/confirmation_dialog.dart';
+import 'package:ollama_desktop/views/shared/widgets/ollama_button.dart';
 
 class ChatView extends StatelessWidget {
   const ChatView({super.key});
@@ -70,15 +71,20 @@ class ChatView extends StatelessWidget {
                           maxLines: 15,
                           decoration: InputDecoration(
                             hintText: 'Type a message'.tr(),
+                            hintStyle: context.theme.textTheme.bodySmall,
                             border: const OutlineInputBorder(),
                           ),
                         ).marginEnd(8),
                       ),
                     ),
-                    MaterialButton(
-                      height: 55,
+                    OllamaButton(
                       onPressed: controller.sendMessage,
-                      child: Text('Send Message'.tr()),
+                      text: 'Send Message'.tr(),
+                      height: 60,
+                      suffex: const Icon(
+                        Icons.send,
+                        size: 20,
+                      ).marginStart(16),
                     ),
                   ],
                 ).marginBottom(20).marginTop(8),

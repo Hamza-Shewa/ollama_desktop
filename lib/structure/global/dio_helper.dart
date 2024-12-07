@@ -1,13 +1,14 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class DioHelper {
   static final Dio dio = Dio();
-
+  static final box = Hive.box('settings');
   static Future initConnection() async {
-    dio.options.baseUrl = dotenv.env['API_URL']!;
+    dio.options.baseUrl =
+        box.get('url', defaultValue: 'http://localhost:11434/api/');
     dio.options.connectTimeout = const Duration(days: 3);
     dio.options.receiveTimeout = const Duration(days: 3);
     dio.options.headers = {

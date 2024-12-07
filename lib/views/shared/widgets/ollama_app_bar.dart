@@ -17,7 +17,10 @@ class OllamaAppBar extends StatelessWidget implements PreferredSizeWidget {
     return Hero(
       tag: 'appBar',
       child: AppBar(
-        title: Text(title ?? 'Ollama'),
+        title: Text(
+          title ?? 'Ollama',
+          textDirection: TextDirection.ltr,
+        ),
         centerTitle: true,
         leading: leading,
         actions: showActions ? action : [],

@@ -7,22 +7,23 @@ class LanguageComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<String> languages = ["English", "العربية"];
     return DropdownMenu<Locale>(
       label: Text('language'.tr()),
       width: 500,
-      dropdownMenuEntries: context.supportedLocales.map((e) {
+      dropdownMenuEntries:
+          List.generate(context.supportedLocales.length, (index) {
+        final language = context.supportedLocales[index];
         return DropdownMenuEntry(
-          value: e,
+          value: language,
           style: ButtonStyle(
-            backgroundColor: WidgetStateProperty.all(
-              context.locale == e
-                  ? context.theme.primaryColor
-                  : context.colorScheme.secondaryContainer,
+            textStyle: WidgetStateProperty.all(
+              context.textTheme.titleSmall,
             ),
           ),
-          label: e.toLanguageTag(),
+          label: languages[index],
         );
-      }).toList(),
+      }),
       initialSelection: context.locale,
       onSelected: (value) {
         if (value != null) {
