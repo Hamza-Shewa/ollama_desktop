@@ -26,8 +26,8 @@ final darkTheme = ThemeData(
     trackColor: WidgetStateProperty.all(Colors.indigo[200]),
   ),
   colorScheme: ColorScheme.dark(
-    primaryContainer: Colors.white,
-    secondaryContainer: Colors.grey[200],
+    primaryContainer: Colors.black54,
+    secondaryContainer: Colors.grey[900],
   ),
   textTheme: const TextTheme(
     titleLarge: TextStyle(

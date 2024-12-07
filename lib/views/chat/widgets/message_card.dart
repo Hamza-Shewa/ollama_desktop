@@ -14,8 +14,9 @@ class MessageCard extends StatelessWidget {
             : context.colorScheme.secondaryContainer,
         child: Text(
           response.isUser ? 'You' : 'AI',
-          style: TextStyle(
-            color: response.isUser ? Colors.white : context.theme.primaryColor,
+          style: context.textTheme.titleMedium?.copyWith(
+            color:
+                !context.isDarkTheme && response.isUser ? Colors.white : null,
           ),
         ),
       ).marginOnly(
@@ -31,8 +32,12 @@ class MessageCard extends StatelessWidget {
           ),
           child: SelectableText(
             response.response,
-            style: TextStyle(
-              color: response.isUser ? Colors.white : null,
+            style: context.textTheme.bodyMedium?.copyWith(
+              color: !context.isDarkTheme && response.isUser
+                  ? Colors.white
+                  : context.isDarkTheme
+                      ? Colors.white
+                      : Colors.black,
             ),
             textDirection: RegExp(r'".*[\u0600-\u06FF].*"')
                         .hasMatch(response.response) &&

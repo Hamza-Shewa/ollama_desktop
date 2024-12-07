@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:ollama_desktop/structure/extensions/extensions.dart';
+import 'package:ollama_desktop/views/shared/widgets/ollama_button.dart';
 
 Future<bool> showConfirmation(
   BuildContext context,
@@ -18,33 +19,36 @@ Future<bool> showConfirmation(
           children: [
             Text(
               title,
+              style: context.textTheme.titleMedium,
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 8),
             Text(
               content,
+              style: context.textTheme.bodyLarge,
               textAlign: TextAlign.center,
             ),
             Row(
               children: [
                 Expanded(
-                  child: MaterialButton(
+                  child: OllamaButton(
                     onPressed: () async {
                       context.pop(result: false);
                     },
-                    child: Text('cancel'.tr()),
+                    outLined: true,
+                    text: 'cancel'.tr(),
                   ).marginEnd(8),
                 ),
                 Expanded(
-                  child: MaterialButton(
+                  child: OllamaButton(
                     onPressed: () async {
                       context.pop(result: true);
                     },
-                    child: Text('confirm'.tr()),
+                    text: 'confirm'.tr(),
                   ),
                 ),
               ],
-            ),
+            ).marginTop(12),
           ],
         ),
       );

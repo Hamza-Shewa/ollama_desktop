@@ -38,8 +38,15 @@ class OllamaButton extends StatelessWidget {
         ),
       ),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(text ?? ''),
+          Text(
+            text ?? '',
+            style: context.textTheme.titleSmall!.copyWith(
+              color: outLined ? context.theme.primaryColor : Colors.white,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
           if (suffex != null) suffex!,
         ],
       ),

@@ -40,6 +40,7 @@ class ChatView extends StatelessWidget {
             ),
             body: Column(
               children: [
+                const SizedBox(height: 20),
                 Expanded(
                   child: ListView.builder(
                     controller: controller.scrollController,

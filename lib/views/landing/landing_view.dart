@@ -19,7 +19,18 @@ class LandingView extends StatelessWidget {
       ),
       body: Center(
         child: Container(
-          constraints: const BoxConstraints(maxWidth: 500),
+          constraints: const BoxConstraints(maxWidth: 550, maxHeight: 450),
+          decoration: BoxDecoration(
+            color: context.theme.scaffoldBackgroundColor,
+            borderRadius: const BorderRadius.all(Radius.circular(20)),
+            boxShadow: [
+              BoxShadow(
+                color: context.colorScheme.shadow,
+                blurRadius: 10,
+                offset: const Offset(0, 5),
+              ),
+            ],
+          ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -54,7 +65,7 @@ class LandingView extends StatelessWidget {
                 ],
               ).marginVertical(20),
             ],
-          ),
+          ).marginHorizontal(20),
         ),
       ),
     );
