@@ -23,13 +23,21 @@ class HistoryView extends StatelessWidget {
             itemBuilder: (context, index) {
               final Chat item = box.getAt(index);
               return ListTile(
-                title: Text(item.model),
+                title: Text(
+                  item.model,
+                  style: context.textTheme.titleMedium,
+                ),
                 onTap: () {
                   context.pushNamed(chat, arguments: item);
                 },
-                subtitle: Text(item.responses.isEmpty
-                    ? 'No Response'.tr()
-                    : item.responses.last.response),
+                subtitle: Text(
+                  item.responses.isEmpty
+                      ? 'No Response'.tr()
+                      : item.responses.last.response,
+                  overflow: TextOverflow.ellipsis,
+                  style: context.textTheme.bodySmall,
+                  maxLines: 1,
+                ),
               );
             },
           );
