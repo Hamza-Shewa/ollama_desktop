@@ -82,7 +82,7 @@ class ChatView extends StatelessWidget {
                       onPressed: controller.sendMessage,
                       text: 'Send Message'.tr(),
                       height: 60,
-                      suffex: const Icon(
+                      icon: const Icon(
                         Icons.send,
                         size: 20,
                       ).marginStart(16),

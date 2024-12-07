@@ -65,20 +65,31 @@ class ModelsComponent extends StatelessWidget {
                       ],
                     ).marginBottom(20),
                   ),
-                  DropdownMenu<String>(
-                    width: 500,
-                    dropdownMenuEntries: models.map((model) {
-                      return DropdownMenuEntry(
-                        value: model.model,
-                        label: model.name,
-                      );
-                    }).toList(),
-                    onSelected: (value) async {
-                      if (value != null) {
-                        controller.setModel(value);
-                      }
-                    },
-                    initialSelection: controller.getModel(),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: DropdownMenu<String>(
+                          width: 500,
+                          dropdownMenuEntries: models.map((model) {
+                            return DropdownMenuEntry(
+                              value: model.model,
+                              label: model.name,
+                            );
+                          }).toList(),
+                          onSelected: (value) async {
+                            if (value != null) {
+                              controller.setModel(value);
+                            }
+                          },
+                          initialSelection: controller.getModel(),
+                        ),
+                      ),
+                      OllamaButton(
+                        icon: const Icon(Icons.add),
+                        text: 'Add Model'.tr(),
+                        onPressed: () {},
+                      ).marginStart(20),
+                    ],
                   ),
                 ],
               );

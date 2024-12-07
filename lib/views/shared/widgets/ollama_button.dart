@@ -7,15 +7,15 @@ class OllamaButton extends StatelessWidget {
     this.text,
     this.outLined = false,
     this.fullWidth = false,
-    this.suffex,
+    this.icon,
     this.height = 55,
     super.key,
-  });
+  }) : assert(text != null || icon != null);
   final Function()? onPressed;
   final String? text;
   final bool outLined;
   final bool fullWidth;
-  final Widget? suffex;
+  final Widget? icon;
   final double height;
   @override
   Widget build(BuildContext context) {
@@ -40,14 +40,15 @@ class OllamaButton extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
-            text ?? '',
-            style: context.textTheme.titleSmall!.copyWith(
-              color: outLined ? context.theme.primaryColor : Colors.white,
-              fontWeight: FontWeight.w500,
+          if (text != null && text!.isNotEmpty)
+            Text(
+              text ?? '',
+              style: context.textTheme.titleSmall!.copyWith(
+                color: outLined ? context.theme.primaryColor : Colors.white,
+                fontWeight: FontWeight.w500,
+              ),
             ),
-          ),
-          if (suffex != null) suffex!,
+          if (icon != null) icon!,
         ],
       ),
     );
